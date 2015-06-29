@@ -1,5 +1,8 @@
 import DS from 'ember-data';
 
+const { attr } = DS;
+
 export default DS.Model.extend({
-	title: DS.attr()
+	isCompleted: attr('boolean'),
+	title: attr()
 });

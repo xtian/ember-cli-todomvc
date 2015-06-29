@@ -3,6 +3,7 @@ import Application from '../../app';
 import Router from '../../router';
 import config from '../../config/environment';
 
+import addTodos from './add-todos';
 import emptyStore from './empty-store';
 
 export default function startApp(attrs) {
