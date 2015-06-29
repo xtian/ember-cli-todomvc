@@ -10,11 +10,7 @@ module('Acceptance | New todo', {
 	},
 
 	afterEach() {
-		const adapter = application.__container__.lookup('adapter:application');
-		const namespace = adapter.get('namespace');
-
-		window.localStorage.setItem(namespace, '{}');
-
+		emptyStore();
 		Ember.run(application, 'destroy');
 	}
 });
