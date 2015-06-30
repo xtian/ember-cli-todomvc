@@ -9,12 +9,12 @@
 				escape-press=(action "cancelEditing" todo)}}
 		{{else}}
 			<input
+				{{action "toggleTodo" todo on="change"}}
 				class="toggle"
 				type="checkbox"
-				onchange={{action "toggleTodo" todo}}
 				checked={{todo.isCompleted}}>
 
-			<label ondblclick={{action "editTodo" todo}}>{{todo.title}}</label>
+			<label {{action "editTodo" todo on="doubleClick"}}>{{todo.title}}</label>
 			<button class="destroy" {{action "deleteTodo" todo}}></button>
 		{{/if}}
 	</li>

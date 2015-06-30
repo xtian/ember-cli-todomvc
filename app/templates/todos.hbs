@@ -1,9 +1,9 @@
 {{#if savedTodos.length}}
 	<section class="main">
 		<input
+			{{action "toggleAll" allCompleted on="change"}}
 			class="toggle-all"
 			type="checkbox"
-			onchange={{action "toggleAll" allCompleted}}
 			checked={{allCompleted}}>
 
 		{{outlet}}
