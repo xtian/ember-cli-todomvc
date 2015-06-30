@@ -19,5 +19,9 @@
 			<li>{{link-to "Active" "todos.active" activeClass="selected"}}</li>
 			<li>{{link-to "Completed" "todos.completed" activeClass="selected"}}</li>
 		</ul>
+
+		{{#if completed.length}}
+			<button class="clear-completed" {{action "clearCompleted" completed}}>Clear completed</button>
+		{{/if}}
 	</footer>
 {{/if}}

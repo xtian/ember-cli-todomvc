@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	activeTodos: Ember.computed.filterBy('model', 'isCompleted', false)
+	needs: ['todos'],
+	activeTodos: Ember.computed.alias('controllers.todos.remaining')
 });
