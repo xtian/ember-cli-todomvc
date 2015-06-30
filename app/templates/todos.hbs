@@ -1,0 +1,19 @@
+{{#if model.length}}
+	<section class="main">
+		{{input class="toggle-all" type="checkbox" checked=allCompleted}}
+
+		{{outlet}}
+	</section>
+
+	<footer class="footer">
+		<span class="todo-count">
+			<strong>{{pluralize remaining.length "item"}}</strong> left
+		</span>
+
+		<ul class="filters">
+			<li>{{link-to "All" "todos.index" activeClass="selected"}}</li>
+			<li>{{link-to "Active" "todos.active" activeClass="selected"}}</li>
+			<li>{{link-to "Completed" "todos.completed" activeClass="selected"}}</li>
+		</ul>
+	</footer>
+{{/if}}
