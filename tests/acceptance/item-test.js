@@ -48,3 +48,16 @@ test('deletes todo with destroy button', assert => {
 	});
 });
 
+test('sets `editing` class after double-click', assert => {
+	visit('/');
+
+	andThen(() => {
+		assert.equal(find('.editing').length, 0);
+	});
+
+	triggerEvent('label:first', 'dblclick');
+
+	andThen(() => {
+		assert.equal(find('.editing').length, 1);
+	});
+});
