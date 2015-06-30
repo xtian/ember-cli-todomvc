@@ -10,5 +10,7 @@ export default Ember.Controller.extend({
 			this.get('model').setEach('isCompleted', value);
 			return value;
 		}
-	})
+	}),
+
+	remaining: Ember.computed.filterBy('model', 'isCompleted', false)
 });
