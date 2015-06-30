@@ -1,7 +1,6 @@
-# Todos
+# Ember CLI TodoMVC
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is an implementation of the TodoMVC app using Ember.js, Ember Data, and Ember CLI.
 
 ## Prerequisites
 
@@ -15,8 +14,8 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
+* `git clone https://github.com/xtian/ember-cli-todomvc.git`
+* `cd ember-cli-todomvc`
 * `npm install`
 * `bower install`
 
@@ -24,10 +23,6 @@ You will need the following things properly installed on your computer.
 
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
 
 ### Running Tests
 
@@ -38,10 +33,6 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 * `ember build` (development)
 * `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
 
