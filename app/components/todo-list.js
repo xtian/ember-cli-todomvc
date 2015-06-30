@@ -5,6 +5,11 @@ export default Ember.Component.extend({
 	tagName: 'ul',
 
 	actions: {
+		deleteTodo(todo) {
+			todo.deleteRecord();
+			todo.save();
+		},
+
 		toggleTodo(todo) {
 			todo.toggleProperty('isCompleted');
 			todo.save();

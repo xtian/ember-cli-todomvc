@@ -37,3 +37,14 @@ test('toggles `completed` class with completion state', assert => {
 		assert.ok(allDone);
 	});
 });
+
+test('deletes todo with destroy button', assert => {
+	visit('/');
+
+	click('.destroy:first');
+
+	andThen(() => {
+		assert.equal(find('.toggle').length, 0);
+	});
+});
+
