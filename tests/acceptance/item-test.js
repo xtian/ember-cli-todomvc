@@ -17,6 +17,8 @@ module('Acceptance | Item', {
 });
 
 test('toggles `completed` class with completion state', assert => {
+	const store = application.__container__.lookup('service:store');
+
 	visit('/');
 
 	andThen(() => {
@@ -27,5 +29,11 @@ test('toggles `completed` class with completion state', assert => {
 
 	andThen(() => {
 		assert.equal(find('.completed').length, 1);
+
+		const allDone = store.findAll('todo').then(todos => {
+			return todos.reduce((acc, todo) => acc && todo.get('isCompleted'));
+		});
+
+		assert.ok(allDone);
 	});
 });

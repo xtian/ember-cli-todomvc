@@ -1,16 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	allCompleted: Ember.computed('model.@each.isCompleted', {
-		get() {
-			return this.get('model').isEvery('isCompleted');
-		},
+	actions: {
+		toggleAll(allCompleted) {
+			const savedTodos = this.get('savedTodos');
 
-		set(_, value) {
-			this.get('model').setEach('isCompleted', value);
-			return value;
+			savedTodos.setEach('isCompleted', !allCompleted);
+			savedTodos.invoke('save');
 		}
+	},
+
+	allCompleted: Ember.computed('savedTodos.@each.isCompleted', function() {
+		return this.get('savedTodos').isEvery('isCompleted');
 	}),
 
-	remaining: Ember.computed.filterBy('model', 'isCompleted', false)
+	remaining: Ember.computed.filterBy('model', 'isCompleted', false),
+	savedTodos: Ember.computed.filterBy('model', 'isNew', false)
 });

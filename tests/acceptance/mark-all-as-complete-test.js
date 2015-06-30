@@ -17,6 +17,8 @@ module('Acceptance | Mark all as complete', {
 });
 
 test("toggle all checkbox should reflect all todos' completion state", assert => {
+	const store = application.__container__.lookup('service:store');
+
 	visit('/');
 	addTodos('foo', 'bar');
 	click('.toggle-all');
@@ -26,6 +28,12 @@ test("toggle all checkbox should reflect all todos' completion state", assert =>
 
 		find('.toggle').each((_, el) => {
 			assert.equal($(el).prop('checked'), true);
+
+			const allDone = store.findAll('todo').then(todos => {
+				return todos.reduce((acc, todo) => acc && todo.get('isCompleted'));
+			});
+
+			assert.ok(allDone);
 		});
 	});
 

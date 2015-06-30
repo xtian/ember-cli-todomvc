@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	savedTodos: Ember.computed.filterBy('model', 'isNew', false)
+	needs: ['todos'],
+	savedTodos: Ember.computed.alias('controllers.todos.savedTodos')
 });
