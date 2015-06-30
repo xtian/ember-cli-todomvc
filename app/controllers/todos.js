@@ -7,9 +7,7 @@ export default Ember.Controller.extend({
 			completed.invoke('save');
 		},
 
-		toggleAll(allCompleted) {
-			const savedTodos = this.get('savedTodos');
-
+		toggleAll(savedTodos, allCompleted) {
 			savedTodos.setEach('isCompleted', !allCompleted);
 			savedTodos.invoke('save');
 		}
