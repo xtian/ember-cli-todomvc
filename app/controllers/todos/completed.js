@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	needs: ['todos'],
-	completedTodos: Ember.computed.alias('controllers.todos.completed')
+	todos: Ember.inject.controller(),
+	completedTodos: Ember.computed.alias('todos.completed')
 });

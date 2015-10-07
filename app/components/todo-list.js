@@ -11,8 +11,7 @@ export default Ember.Component.extend({
 		},
 
 		deleteTodo(todo) {
-			todo.deleteRecord();
-			todo.save();
+			todo.destroyRecord();
 		},
 
 		editTodo(todo) {

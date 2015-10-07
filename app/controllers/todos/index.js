@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	needs: ['todos'],
-	savedTodos: Ember.computed.alias('controllers.todos.savedTodos')
+	todos: Ember.inject.controller(),
+	savedTodos: Ember.computed.alias('todos.savedTodos')
 });

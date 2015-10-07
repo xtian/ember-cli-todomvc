@@ -13,8 +13,10 @@ export default Ember.Controller.extend({
 		}
 	},
 
-	allCompleted: Ember.computed('savedTodos.@each.isCompleted', function() {
-		return this.get('savedTodos').isEvery('isCompleted');
+	allCompleted: Ember.computed('savedTodos.@each.isCompleted', {
+		get() {
+			return this.get('savedTodos').isEvery('isCompleted');
+		}
 	}),
 
 	completed: Ember.computed.filterBy('model', 'isCompleted', true),
